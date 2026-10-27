@@ -1,0 +1,16 @@
+Third-party materials in this offline Windows x64 playtest
+
+Node.js 24.21.0: runtime/node.exe; complete upstream LICENSE is runtime/Node-LICENSE.txt.
+Cocos Engine 3.8.8: game/cocos-js/cc.js and generated build support; see Cocos-Engine-LICENSE.txt.
+SystemJS: game/src/system.bundle.js; upstream MIT text in SystemJS-LICENSE.txt (6.14.2).
+core-js 3.6.5: embedded in game/src/polyfills.bundle.js; MIT in core-js-LICENSE.txt.
+regenerator-runtime: embedded in game/src/polyfills.bundle.js; upstream MIT notice retained.
+@cocos/box2d 1.0.2 (Box2D TypeScript port): embedded in cc.js; upstream LICENSE retained.
+Additional original Box2D zlib notice retained for the legacy port.
+Cocos zlib/zlib.js notices retained conservatively for bundled decompression code.
+
+Spine/DragonBones runtime modules were disabled through Cocos feature cropping;
+no Spine/DragonBones runtime file is distributed. Generic Cocos error messages
+and deprecated class-name lookup strings may still mention those module names.
+Editor binaries, developer tools and npm packages are not distributed.
+These upstream licenses apply to their components, not to this project's own game code.

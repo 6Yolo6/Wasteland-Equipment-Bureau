@@ -1,0 +1,25 @@
+{
+  "name": "wasteland-equipment-bureau-tools",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Development tools for the Cocos/TapTap native minigame; browser harness is not a release target",
+  "scripts": {
+    "test": "node tools/test_game.cjs",
+    "test:core": "node tools/test_game.cjs",
+    "check": "node tools/test_game.cjs --check-only",
+    "preview": "node tools/serve_preview.cjs",
+    "test:tools": "node --test --test-reporter=tap tools/tests/async-poll.test.cjs",
+    "test:preparation": "python -m unittest discover -s tools/tests -p test_preparation.py -v",
+    "analyze:balance": "node tools/analyze_balance.cjs",
+    "analyze:layout": "node tools/experiment_layout.cjs",
+    "test:build-tools": "python -m unittest discover -s tools/tests -p test_build_game.py -v",
+    "test:evidence": "node --test --test-reporter=tap tools/tests/build-evidence.test.cjs",
+    "test:portable": "node --test tools/tests/portable-server.test.cjs",
+    "package:friends": "python tools/package_friends.py",
+    "verify:friends": "python tools/verify_friends.py",
+    "analyze:pressure": "node tools/experiment_pressure.cjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ES2019",
+    "module": "CommonJS",
+    "lib": [
+      "ES2019"
+    ],
+    "strict": true,
+    "noEmitOnError": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "types": [],
+    "rootDir": "game/assets/scripts",
+    "outDir": ".test-build"
+  },
+  "include": [
+    "game/assets/scripts/core/**/*.ts",
+    "game/assets/scripts/content/**/*.ts",
+    "game/assets/scripts/application/**/*.ts",
+    "game/assets/scripts/ports/**/*.ts",
+    "game/assets/scripts/presentation/GamePresenter.ts",
+    "game/assets/scripts/adapters/**/*.ts"
+  ]
+}

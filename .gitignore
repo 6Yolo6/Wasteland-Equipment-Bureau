@@ -1,0 +1,28 @@
+# Local machine settings and private platform configuration
+toolchains.local.json
+.env
+.env.*
+!.env.example
+*.local.json
+# Tool and build caches
+__pycache__/
+*.pyc
+node_modules/
+dist/
+bin/
+obj/
+target/
+# Future Creator generated output; preserve assets and .meta files
+game/library/
+game/temp/
+game/local/
+game/build/
+# Runtime logs may contain diagnostic identifiers; reviewed phase-1 evidence stays local
+logs/
+# Isolated editor smoke projects; not the game source
+/verification/
+
+# Pure TypeScript test/compiler output
+.test-build/
+# Editor user-specific profiles
+game/profiles/

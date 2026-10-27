@@ -1,0 +1,10 @@
+'use strict';
+const fs=require('node:fs');const path=require('node:path');const {createLocalServer}=require('./lib/local-game-server.cjs');
+const root=path.resolve(__dirname,'..');const buildName=process.env.BUILD_NAME||'web-mobile';if(!/^web-mobile(?:-[a-z0-9]+)*$/.test(buildName))throw new Error('Invalid build name');const build=path.join(root,'game/build',buildName);
+if(!fs.existsSync(path.join(build,'index.html')))throw new Error('No real Creator build exists. Run python tools/build_game.py first.');
+const port=Number(process.env.PORT||4173);if(!Number.isInteger(port)||port<1024||port>65535)throw new Error('PORT must be 1024..65535');
+const logs=path.join(root,'logs/phase-2');fs.mkdirSync(logs,{recursive:true});
+const server=createLocalServer(build,error=>fs.appendFileSync(path.join(logs,'preview-http.log'),JSON.stringify(error)+'\n'));
+server.on('error',error=>{console.error(error.message);process.exitCode=1;});
+server.listen(port,'127.0.0.1',()=>{const info={url:'http://127.0.0.1:'+port,root:build,pid:process.pid,scope:'Cocos Web Mobile development preview, NOT TapTap native',started:new Date().toISOString()};fs.writeFileSync(path.join(logs,'preview-server.json'),JSON.stringify(info,null,2));console.log(JSON.stringify(info,null,2));});
+process.on('SIGINT',()=>server.close());process.on('SIGTERM',()=>server.close());
